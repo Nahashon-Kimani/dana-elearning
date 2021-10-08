@@ -38,7 +38,7 @@
             <form action="{{ route('lecturer.exercise.update', $exercise->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="created_by" value="{{ Auth::user()->id }}">
+                {{-- <input type="hidden" name="created_by" value="{{ Auth::user()->id }}"> --}}
              <div class="form-group">
               <label for="input-13">Title</label>
               <input name="title" type="text" class="form-control form-control-square" id="input-13" value="{{ $exercise->title }}">

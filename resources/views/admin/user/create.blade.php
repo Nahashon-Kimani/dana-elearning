@@ -28,9 +28,9 @@
                                 <div class="form-group col-sm-9 offset-col-sm-3">
                                         <label for="basic-select" >Select Roles</label>
                                           <select name="role_id" class="form-control" id="basic-select">
-                                                <option value="1">Admin</option>
+                                                <option value="3" selected>Student</option>
                                                 <option value="2">Lecturer</option>
-                                                <option value="3">Student</option>
+                                                <option value="1">Admin</option>
                                             </select>
                                         </div>
                                       </div>
@@ -42,7 +42,7 @@
                             <div class="col-sm-5">
                                 <div class="form-group">
                                     <label for="input-14">Email</label>
-                                    <input name="email" type="text" class="form-control form-control-square" id="input-14" placeholder="Enter Your Email Address">
+                                    <input name="email" type="email" class="form-control form-control-square" id="input-14" placeholder="Enter Your Email Address">
                                    </div>
     
                                    <div class="form-group">

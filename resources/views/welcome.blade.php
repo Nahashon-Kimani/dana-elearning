@@ -114,7 +114,7 @@
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="single-boxes-item bg-color">
-						<h3>Earn a Certificate on completion</h3>
+						<h3>Certificate on completion</h3>
 						<p>Earn a Certificate of completion as you await the final one.</p>
 						<a href="{{ route('website.course') }}" class="boxes-btn">View Courses
 							<i class="bx bx-plus"></i>

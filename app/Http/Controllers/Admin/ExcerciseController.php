@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Excerise;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
 
 class ExcerciseController extends Controller
 {
@@ -41,8 +42,8 @@ class ExcerciseController extends Controller
         //return $request->all();
 
         $this->validate($request, [
-            'title'=>'required',
-            'content'=>'required'
+            'title' => 'required',
+            'content' => 'required'
         ]);
 
         $exercise = new Excerise();
@@ -91,14 +92,28 @@ class ExcerciseController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title'=>'required',
-            'content'=>'required'
+            'title' => 'required',
+            'content' => 'required'
         ]);
 
         $exercise = Excerise::findOrFail($id);
+
+
+        Auth::user()->role_id;
+
+        if ($exercise->created_by != Auth::id()) {
+            $exercise = new Excerise();
+
+            // If the authenticated user is admin, then approve the exercise otherwise leave it
+            if (Auth::user()->role_id == 1) {
+                $exercise->status = 1;
+            } else {
+                $exercise->status = 0;
+            }
+        }
+
         $exercise->title = $request->title;
         $exercise->slug = $request->title;
-        $exercise->created_by = $request->created_by;
         $exercise->content = $request->content;
         $exercise->save();
 
@@ -114,7 +129,6 @@ class ExcerciseController extends Controller
 
         Toastr::success('Exercise successfully Approved', 'Success ;)');
         return redirect()->back();
-        
     }
 
     /**

@@ -24,3 +24,8 @@
 
 {{-- Toastr --}}
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/bootstrap.min.js') }}"></script>

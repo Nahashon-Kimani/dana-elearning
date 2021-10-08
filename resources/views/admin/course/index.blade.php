@@ -36,7 +36,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-          <table id="default-datatable" class="table table-bordered">
+          <table id="table" class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>

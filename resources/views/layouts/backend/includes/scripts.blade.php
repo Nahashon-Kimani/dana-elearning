@@ -1,7 +1,4 @@
-<!-- Bootstrap core JavaScript-->
-<script src="{{ asset('backend/assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/bootstrap.min.js') }}"></script>
+
   
 <!-- simplebar js -->
 <script src="{{ asset('backend/assets/plugins/simplebar/js/simplebar.js') }}"></script>
@@ -46,6 +43,7 @@
        			});
        			
        		@endforeach
+        @endif
        </script>
 
   <script>

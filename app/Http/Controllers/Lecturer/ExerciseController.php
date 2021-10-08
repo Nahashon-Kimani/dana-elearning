@@ -99,12 +99,18 @@ class ExerciseController extends Controller
         ]);
 
         $exercise = Excerise::findOrFail($id);
+
+        // If exercise was not created by the person editing, then create a new instance of the exercise. 
+        if ($exercise->created_by != Auth::user()->id) {
+             $exercise = new Excerise();
+             $exercise->created_by = Auth::id();
+        }
+
         $exercise->title = $request->title;
         $exercise->slug = $request->title;
-        $exercise->created_by = $request->created_by;
         $exercise->content = $request->content;
         $exercise->save();
-
+        
         return redirect()->route('lecturer.exercise.show', $id);
     }
 
