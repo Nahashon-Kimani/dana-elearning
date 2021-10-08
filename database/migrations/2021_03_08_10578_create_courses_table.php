@@ -39,6 +39,7 @@ class CreateCoursesTable extends Migration
                     ->on('users')
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

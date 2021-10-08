@@ -21,6 +21,7 @@ class CreateContactUsTable extends Migration
             $table->string('subject');
             $table->longText('message');
             $table->string('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

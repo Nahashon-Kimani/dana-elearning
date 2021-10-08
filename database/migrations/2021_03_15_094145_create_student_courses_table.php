@@ -24,10 +24,11 @@ class CreateStudentCoursesTable extends Migration
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
             $table->foreign('course_id')
-            ->references('id')
-            ->on('courses')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                    ->references('id')
+                    ->on('courses')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

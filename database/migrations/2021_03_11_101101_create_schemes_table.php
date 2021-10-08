@@ -25,6 +25,7 @@ class CreateSchemesTable extends Migration
                     ->onDelete('cascade');
             $table->longText('desc');
             $table->string('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

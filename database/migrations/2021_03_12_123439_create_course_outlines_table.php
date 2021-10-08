@@ -29,7 +29,8 @@ class CreateCourseOutlinesTable extends Migration
                     ->references('id')
                     ->on('users')
                     ->onUpdate('cascade')
-                    ->onDelete('cascade');       
+                    ->onDelete('cascade');  
+            $table->softDeletes();
             $table->timestamps();
         });
     }

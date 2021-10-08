@@ -24,6 +24,7 @@ class CreateSyllabiTable extends Migration
                     ->onUpdate('cascade')
                     ->onDelete('cascade');
             $table->string('status')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

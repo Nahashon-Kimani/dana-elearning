@@ -37,7 +37,8 @@ class CreateLessonsTable extends Migration
                     ->references('id')
                     ->on('units')
                     ->onDelete('cascade')
-                    ->onUpdate('cascade');       
+                    ->onUpdate('cascade');  
+            $table->softDeletes();
             $table->timestamps();
         });
     }

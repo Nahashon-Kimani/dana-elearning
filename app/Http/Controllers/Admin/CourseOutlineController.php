@@ -8,6 +8,7 @@ use App\Models\CourseOutline;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CourseOutlineController extends Controller
 {
@@ -47,8 +48,14 @@ class CourseOutlineController extends Controller
         ]);
 
         $courseOutline = new CourseOutline();
+
+        // if the course outline is posted by an admin, then its by default approved
+        if (Auth::user()->role_id == 1) {
+            $courseOutline->status = 1;
+        }
+
         $courseOutline->course_id = $request->course_id;
-        $courseOutline->slug = $request->course_id;
+        $courseOutline->slug = Str::slug($request->course_id);
         $courseOutline->desc = $request->desc;
         $courseOutline->created_by = Auth::user()->id;
         $courseOutline->save();

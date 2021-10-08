@@ -114,7 +114,23 @@
         <li><a href="{{ route('admin.payments.index') }}"><i class="fa fa-circle-o"></i>All Payments</a></li>
       </ul>
     </li>
-     
+    {{-- Website --}}
+      <li>
+       <a href="javaScript:void();" class="waves-effect">
+         <i class="fa fa-globe"></i>
+         <span>Website</span>
+         <i class="fa fa-angle-left pull-right"></i>  
+       </a>
+       <ul class="sidebar-submenu">
+             <li><a href="mail-inbox.html"><i class="fa fa-circle-o"></i> Home</a></li>
+             <li><a href="mail-compose.html"><i class="fa fa-circle-o"></i> About Us</a></li>
+             <li><a href="mail-read.html"><i class="fa fa-circle-o"></i> Services</a></li>
+             <li><a href="mail-read.html"><i class="fa fa-circle-o"></i> Blog</a></li>
+             <li><a href="mail-read.html"><i class="fa fa-circle-o"></i> Contact Us</a></li>
+           </ul>
+     </li>
+    
+    {{-- Emails --}}
      <li>
        <a href="javaScript:void();" class="waves-effect">
          <i class="icon-envelope"></i>

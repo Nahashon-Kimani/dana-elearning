@@ -17,6 +17,7 @@ class CreateSubscriptionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

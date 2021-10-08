@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('profile_picture')->default('default.png');
             $table->text('about')->default('Good Staff');
             $table->string('status')->default(0);
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

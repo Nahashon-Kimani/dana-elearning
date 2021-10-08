@@ -25,6 +25,7 @@ class CreateExcerisesTable extends Migration
                     ->on('users')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
