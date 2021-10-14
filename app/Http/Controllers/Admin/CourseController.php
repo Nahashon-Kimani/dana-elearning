@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\CourseOutline;
+use App\Models\Subscription;
 use App\Models\Syllabus;
 use App\Models\Unit;
 use App\Models\User;
+use App\Notifications\NewCourseCreated;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class CourseController extends Controller
 {
@@ -69,6 +72,14 @@ class CourseController extends Controller
         $course->desc = $request->details;
         $course->created_by = $request->created_by;
         $course->save();
+
+
+        // Sending emails to the subscribers that a new course is available
+        $subscribers = Subscription::all();
+        foreach ($subscribers as  $subscriber) {
+            Notification::route('mail', $subscriber->email)
+                ->notify(new NewCourseCreated($course));
+        }
 
         Toastr::success('Course Successfully Created', 'Success :)');
         return redirect()->route('admin.courses.index');
